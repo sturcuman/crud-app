@@ -10,8 +10,6 @@ import java.util.stream.Collectors;
 @Entity()
 @Table(name = "cars")
 public class CarEntity extends PanacheEntity {
-/*    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)*/
     public long id;
 
     @Column(name = "type")
@@ -22,15 +20,6 @@ public class CarEntity extends PanacheEntity {
     public String color;
     @Column(name = "maxSpeed")
     public int maxSpeed;
-
-    public static List<CarEntity> findByQuery(String query) {
-        return CarEntity.listAll().stream().
-                map(p -> (CarEntity) p)
-                .filter(flower ->
-                        query.contains(flower.type) ||
-                                query.contains(flower.model))
-                .collect(Collectors.toList());
-    }
 
     @Override
     public String toString() {
@@ -43,13 +32,6 @@ public class CarEntity extends PanacheEntity {
                 '}';
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getType() {
         return type;
