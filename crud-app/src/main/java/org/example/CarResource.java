@@ -1,6 +1,6 @@
 package org.example;
 
-import org.jboss.logging.Logger;
+
 
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
@@ -12,7 +12,6 @@ import java.util.List;
 @Path("/cars")
 public class CarResource {
 
-    private static final Logger logger = Logger.getLogger(CarResource.class);
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
